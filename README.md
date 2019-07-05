@@ -13,4 +13,4 @@ Authentication in a REST API
 - JWT are signed by the server and can only be validated by the server
 
 Async-await
-
+- Refactored our code to use this (cleaner in my opinion)
