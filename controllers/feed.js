@@ -125,7 +125,7 @@ exports.updatePost = async (req, res, next) => {
   }
 
   try {
-    const post = await Post.findById(postId);
+    const post = await Post.findById(postId).populate("creator");
 
     // Couldn't find the post
     if (!post) {
@@ -135,7 +135,7 @@ exports.updatePost = async (req, res, next) => {
     }
 
     // Post wasn't created by the user trying to edit it
-    if (post.creator.toString() !== req.userId) {
+    if (post.creator._id.toString() !== req.userId) {
       const error = new Error("Not authorized");
       error.statusCode = 403;
       throw error;
@@ -150,6 +150,7 @@ exports.updatePost = async (req, res, next) => {
     post.content = content;
     const result = await post.save();
 
+    io.getIO().emit("posts", { action: "update", post: result });
     res.status(200).json({ message: "Post updated!", post: result });
   } catch (error) {
     next(error);
