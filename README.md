@@ -14,3 +14,7 @@ Authentication in a REST API
 
 Async-await
 - Refactored our code to use this (cleaner in my opinion)
+
+Websockets & Socket.io
+
+GraphQL
