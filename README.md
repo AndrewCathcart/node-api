@@ -1,6 +1,6 @@
 # node-api
 
-API backend built using GraphQL, Node.js & Express.js, following along with (NodeJS - The Complete Guide)[https://www.udemy.com/course/nodejs-the-complete-guide/]
+API backend built using GraphQL, Node.js & Express.js, following along with [NodeJS - The Complete Guide](https://www.udemy.com/course/nodejs-the-complete-guide/)
 
 ## What I've learned in this project
 
