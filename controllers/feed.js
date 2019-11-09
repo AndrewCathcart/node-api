@@ -3,6 +3,7 @@ const expressValidator = require("express-validator");
 const io = require("../socket");
 const Post = require("../models/post");
 const User = require("../models/user");
+const { clearImage } = require("../util/file");
 
 exports.getPosts = async (req, res, next) => {
   // Pagination variables
@@ -192,11 +193,4 @@ exports.deletePost = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-};
-
-const fs = require("fs");
-const path = require("path");
-const clearImage = filePath => {
-  filePath = path.join(__dirname, "..", filePath);
-  fs.unlink(filePath, err => console.log(err));
 };
